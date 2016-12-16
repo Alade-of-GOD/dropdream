@@ -13,4 +13,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="notetocreate">Click the images you would like to use as your login in images.</string>
+    <string name="imageremind">stroll down to see your login in image combinations</string>
 </resources>
