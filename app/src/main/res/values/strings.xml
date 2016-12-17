@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DropDream</string>
+    <string name="app_name">Drop Dream</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

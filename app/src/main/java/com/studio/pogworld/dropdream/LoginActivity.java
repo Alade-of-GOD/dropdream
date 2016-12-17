@@ -1,12 +1,10 @@
 package com.studio.pogworld.dropdream;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 /**
  * Created by Micheal on 12/16/2016.
@@ -14,10 +12,9 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public static String filename = "MySharedString";
-    SharedPreferences someData;
+    //SharedPreferences someData;
     ImageView img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16;
-    public static String myImgLog;
+    public static String myImgLog = "";
     //list.add("1");
     //list.add("2");
     //list.add("3");
@@ -42,17 +39,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
 
         if (myImgLog.equals("")) {
-            Toast.makeText(this, "Please set your pattern", Toast.LENGTH_LONG).show();
-            Intent i = new Intent("com.studio.pogworld.dropdream.CREATEPATTERN");
-            startActivity(i);
+            //Toast.makeText(this, "Please set your pattern", Toast.LENGTH_LONG).show();
+            Thread timer = new Thread() {
+                public void run() {
+                    try {
+                        sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } finally {
+                        Intent i = new Intent("com.studio.pogworld.dropdream.CREATELOGINACTIVITY");
+                        startActivity(i);
+                    }
+                }
+
+            };
+            timer.start();
         }
 
-        else {
-            setContentView(R.layout.activity_login);
-        }
-        someData = getSharedPreferences(myImgLog, 0);
+        //someData = getSharedPreferences(myImgLog, 0);
         GetImages();
         //listening to onclicklistener
         img1.setOnClickListener(this);
